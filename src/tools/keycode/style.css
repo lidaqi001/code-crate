@@ -1,0 +1,198 @@
+/* 按键速查专属样式 */
+
+.tool-main.keycode-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  .tool-main.keycode-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(280px, auto);
+  }
+}
+
+/* ── 实时按键 ─────────────────────────────────────────────── */
+.live-zone {
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  padding: var(--sp-5) var(--sp-4);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+  margin-bottom: var(--sp-4);
+}
+.live-zone:hover {
+  border-color: var(--accent);
+}
+.live-zone:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  outline: none;
+}
+.live-zone.armed {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.live-combo {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  min-height: 30px;
+}
+.live-sub {
+  font-size: 11.5px;
+  color: var(--text-3);
+  margin-top: 6px;
+}
+
+.live-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.live-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: 12px;
+}
+.live-row .k {
+  flex: 0 0 66px;
+  color: var(--text-3);
+  font-size: 11px;
+}
+.live-row .v {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+
+.code-hint {
+  margin-top: var(--sp-3);
+}
+.code-hint pre {
+  margin: 0;
+  padding: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ── 搜索与筛选 ───────────────────────────────────────────── */
+.search-field {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.search-field input {
+  height: 28px;
+  font-size: 12.5px;
+}
+
+.chips {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.chip {
+  height: 22px;
+  padding: 0 9px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: 11.5px;
+  cursor: pointer;
+}
+.chip:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.chip[aria-pressed='true'] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── 按键表 ───────────────────────────────────────────────── */
+.key-table-wrap {
+  overflow: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.key-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.key-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  padding: 6px 10px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.key-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.key-table tr:hover {
+  background: var(--surface-2);
+}
+
+.col-key {
+  width: 96px;
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+.col-code {
+  width: 132px;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+.col-keycode {
+  width: 74px;
+  font-family: var(--font-mono);
+  color: var(--text-2);
+  text-align: right;
+}
+.col-category {
+  width: 68px;
+  font-size: 11px;
+  color: var(--text-3);
+}
+.col-note {
+  color: var(--text-3);
+  font-size: 11.5px;
+}
+.col-copy {
+  width: 34px;
+  text-align: right;
+}

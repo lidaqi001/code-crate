@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Web 资产 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="webassets">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main webassets-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="生成器">
+            <button type="button" role="tab" data-mode="meta" aria-selected="true">meta 标签</button>
+            <button type="button" role="tab" data-mode="robots" aria-selected="false">robots.txt</button>
+            <button type="button" role="tab" data-mode="sitemap" aria-selected="false">sitemap.xml</button>
+          </div>
+          <span class="spacer"></span>
+          <button class="btn btn-sm" type="button" id="btn-sample">示例</button>
+        </div>
+        <div class="panel-body" id="form"></div>
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">输出</span>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+        <div class="panel-body" id="output"></div>
+        <div class="panel-foot" id="foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

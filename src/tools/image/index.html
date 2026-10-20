@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>图片工具 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="image">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main image-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="功能">
+            <button type="button" role="tab" data-mode="convert" aria-selected="true">转换与压缩</button>
+            <button type="button" role="tab" data-mode="meta" aria-selected="false">元数据</button>
+            <button type="button" role="tab" data-mode="vision" aria-selected="false">色盲模拟</button>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="field">
+            <label for="file">选择图片</label>
+            <input type="file" id="file" accept="image/*" aria-label="选择图片文件" />
+          </div>
+
+          <div class="field">
+            <label for="paste">或粘贴 Base64 / Data URI</label>
+            <textarea id="paste" class="mono" spellcheck="false" aria-label="粘贴 Base64" placeholder="data:image/png;base64,... 或直接粘贴 Base64"></textarea>
+          </div>
+          <div class="row">
+            <button class="btn btn-sm" type="button" id="btn-load-paste">载入粘贴内容</button>
+            <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+          </div>
+
+          <div class="section-label">来源信息</div>
+          <div id="source-info"></div>
+
+          <div class="section-label" id="options-title">转换选项</div>
+          <div id="options"></div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">预览</span>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+        <div class="panel-body" id="preview"></div>
+        <div class="panel-foot" id="foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

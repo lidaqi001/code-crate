@@ -1,0 +1,156 @@
+/* 加密与摘要专属样式 */
+
+.crypto-layout {
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.crypto-layout .panel {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.work-row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-3);
+}
+
+.work-row .field {
+  min-width: 104px;
+}
+
+.work-row .field.wide {
+  flex: 1 1 260px;
+}
+
+.work-row input,
+.work-row select {
+  height: 30px;
+}
+
+.work-row textarea {
+  min-height: 96px;
+}
+
+.work-row input.mono {
+  font-size: 13px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+.section-label:first-child {
+  margin-top: 0;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.result-table th {
+  text-align: left;
+  font-size: 11px;
+  color: var(--text-3);
+  padding: 5px 9px;
+  border-bottom: 1px solid var(--border);
+}
+.result-table td {
+  padding: 7px 9px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.result-table tr:last-child td {
+  border-bottom: none;
+}
+.col-name {
+  width: 132px;
+  color: var(--text-2);
+  font-size: 11.5px;
+}
+.col-value {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  word-break: break-all;
+  user-select: all;
+}
+.col-value.primary {
+  color: var(--accent);
+  font-weight: 600;
+}
+.col-actions {
+  width: 34px;
+  text-align: right;
+}
+
+.inline-error {
+  border: 1px solid var(--danger);
+  background: var(--danger-soft);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  color: var(--danger);
+  font-size: 12.5px;
+  display: flex;
+  gap: var(--sp-2);
+  align-items: flex-start;
+}
+
+.verify-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+}
+.verify-badge.ok {
+  background: var(--success-soft);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+.verify-badge.bad {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+.stat-cell {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+}
+.stat-cell .k {
+  font-size: 10.5px;
+  color: var(--text-3);
+}
+.stat-cell .v {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 650;
+  margin-top: 1px;
+  word-break: break-all;
+}
+
+.note {
+  font-size: 11.5px;
+  color: var(--text-3);
+  line-height: 1.6;
+  margin-top: var(--sp-2);
+}

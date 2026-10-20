@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 静态自检
+        run: npm run lint
+      - name: 单元测试
+        run: npm test
+      - name: 浏览器冒烟（无可用浏览器时自动跳过）
+        run: npm run smoke
+      - name: 打包校验
+        run: npm run package

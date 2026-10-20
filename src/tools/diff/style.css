@@ -1,0 +1,271 @@
+/* 文本 Diff 专属样式 */
+
+.tool-main.diff-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 940px) {
+  .tool-main.diff-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(280px, 1fr);
+  }
+}
+
+/* ── 撑满修复 ─────────────────────────────────────────────── */
+/* .diff-inputs 写着 flex: 1 1 auto，但父级 .panel-body 从 base.css 继承的是
+   display:block——这条 flex 一直是空操作，两个文本框因此撑不满，
+   面板下方留一大块空白。补上 flex 父级即可。 */
+.diff-layout .panel-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── 输入区 ───────────────────────────────────────────────── */
+.opt-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  padding: 7px var(--sp-3);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.diff-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.diff-side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--surface);
+}
+
+.side-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 5px var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.side-head .grow {
+  flex: 1 1 auto;
+}
+
+.diff-side textarea {
+  flex: 1 1 auto;
+  min-height: 130px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 8px 10px;
+  white-space: pre;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.diff-side textarea:focus {
+  box-shadow: none;
+}
+
+/* ── 差异视图 ─────────────────────────────────────────────── */
+.diff-view {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  min-height: 100%;
+}
+
+.diff-line {
+  display: flex;
+  align-items: flex-start;
+  min-height: 19px;
+}
+.diff-line:hover {
+  background: var(--surface-2);
+}
+
+.diff-line .ln {
+  flex: 0 0 40px;
+  text-align: right;
+  padding: 0 6px;
+  color: var(--text-3);
+  background: var(--surface-2);
+  border-right: 1px solid var(--border);
+  user-select: none;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.diff-line .sign {
+  flex: 0 0 16px;
+  text-align: center;
+  user-select: none;
+  opacity: 0.75;
+}
+
+.diff-line .text {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diff-line.add {
+  background: var(--diff-add-bg);
+}
+.diff-line.add .ln {
+  background: var(--diff-add-bg);
+}
+.diff-line.add .sign {
+  color: var(--diff-add-text);
+}
+
+.diff-line.del {
+  background: var(--diff-del-bg);
+}
+.diff-line.del .ln {
+  background: var(--diff-del-bg);
+}
+.diff-line.del .sign {
+  color: var(--diff-del-text);
+}
+
+/* 行内词级高亮 */
+.diff-line .word-add {
+  background: rgba(63, 185, 80, 0.35);
+  border-radius: 2px;
+}
+.diff-line .word-del {
+  background: rgba(248, 81, 73, 0.32);
+  border-radius: 2px;
+}
+
+/* ── 统计 ─────────────────────────────────────────────────── */
+.diff-stats {
+  display: flex;
+  gap: var(--sp-4);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.stat-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 11.5px;
+  color: var(--text-2);
+}
+.stat-chip b {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-chip.add b {
+  color: var(--diff-add-text);
+}
+.stat-chip.del b {
+  color: var(--diff-del-text);
+}
+.stat-chip.sim b {
+  color: var(--accent);
+}
+
+.similarity-bar {
+  flex: 1 1 120px;
+  min-width: 80px;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.similarity-bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+}
+
+/* ── JSON 差异表 ──────────────────────────────────────────── */
+.json-diff-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.json-diff-row:last-child {
+  border-bottom: none;
+}
+.json-diff-row:hover {
+  background: var(--surface-2);
+}
+
+.jd-type {
+  flex: 0 0 46px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  padding: 1px 0;
+}
+.jd-type.added {
+  color: var(--diff-add-text);
+  background: var(--diff-add-bg);
+}
+.jd-type.removed {
+  color: var(--diff-del-text);
+  background: var(--diff-del-bg);
+}
+.jd-type.changed {
+  color: var(--warn);
+  background: var(--warn-soft);
+}
+
+.jd-path {
+  flex: 0 0 34%;
+  font-family: var(--font-mono);
+  color: var(--token-key);
+  word-break: break-all;
+}
+
+.jd-values {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+.jd-old {
+  color: var(--diff-del-text);
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+.jd-arrow {
+  color: var(--text-3);
+  margin: 0 5px;
+}
+.jd-new {
+  color: var(--diff-add-text);
+}
+
+.patch-view {
+  margin: 0;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre;
+  overflow: auto;
+}

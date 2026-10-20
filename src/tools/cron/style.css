@@ -1,0 +1,206 @@
+/* Cron 工具专属样式 */
+
+.tool-main.cron-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  .tool-main.cron-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(260px, auto);
+  }
+}
+
+.expression-input {
+  height: 38px;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.expression-input.invalid {
+  border-color: var(--danger);
+}
+
+.field-note {
+  font-size: 11px;
+  color: var(--text-3);
+  text-align: center;
+  margin-top: 6px;
+  min-height: 16px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+
+/* ── 常用表达式 ───────────────────────────────────────────── */
+.common-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.common-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  background: transparent;
+  width: 100%;
+  color: var(--text);
+}
+.common-item:hover {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.common-expr {
+  flex: 0 0 150px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.common-note {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 11.5px;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── 结果区 ───────────────────────────────────────────────── */
+.description-box {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: var(--sp-4);
+}
+.description-text {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.description-sub {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 4px;
+  font-family: var(--font-mono);
+}
+
+.error-box {
+  border: 1px solid var(--danger);
+  background: var(--danger-soft);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  color: var(--danger);
+  font-size: 12.5px;
+  display: flex;
+  gap: var(--sp-2);
+  align-items: flex-start;
+}
+
+/* ── 字段明细 ─────────────────────────────────────────────── */
+.field-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: var(--sp-4);
+}
+.field-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-3);
+  font-size: 11px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--border);
+}
+.field-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.field-table tr:last-child td {
+  border-bottom: none;
+}
+.field-table .col-label {
+  width: 56px;
+  color: var(--text-2);
+}
+.field-table .col-raw {
+  font-family: var(--font-mono);
+  color: var(--token-string);
+  word-break: break-all;
+}
+.field-table .col-count {
+  width: 68px;
+  text-align: right;
+  font-family: var(--font-mono);
+  color: var(--text-3);
+}
+
+/* ── 下次触发 ─────────────────────────────────────────────── */
+.run-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.run-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+}
+.run-row:hover {
+  background: var(--surface-2);
+}
+.run-row:nth-child(odd) {
+  background: var(--surface-2);
+}
+
+.run-index {
+  flex: 0 0 20px;
+  color: var(--text-3);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.run-time {
+  flex: 1 1 auto;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+}
+.run-relative {
+  flex: 0 0 auto;
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.empty-note {
+  color: var(--text-3);
+  font-size: 12px;
+  padding: var(--sp-4);
+  text-align: center;
+}

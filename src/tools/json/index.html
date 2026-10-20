@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>JSON 工具 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="json">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main json-layout" id="json-layout">
+      <section class="panel">
+        <div class="panel-head" id="input-head">
+          <span class="panel-title">输入</span>
+          <span class="spacer"></span>
+          <button class="btn btn-sm btn-primary" type="button" id="btn-format" title="格式化 (Ctrl+Enter)">格式化</button>
+          <button class="btn btn-sm" type="button" id="btn-minify">压缩</button>
+          <button class="btn btn-sm" type="button" id="btn-sort">排序键</button>
+          <select id="indent" class="mini-select" title="缩进方式" aria-label="缩进方式">
+            <option value="2">2 空格</option>
+            <option value="4">4 空格</option>
+            <option value="tab">Tab</option>
+          </select>
+          <button class="btn btn-sm" type="button" id="btn-sample">示例</button>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+        </div>
+
+        <div class="panel-body flush editor-wrap" id="input-body">
+          <div class="gutter" id="gutter" aria-hidden="true"></div>
+          <textarea
+            id="json-input"
+            class="mono"
+            spellcheck="false"
+            autocomplete="off"
+            placeholder='粘贴 JSON，例如 {"hello": "world"}'
+            aria-label="JSON 输入"
+          ></textarea>
+        </div>
+
+        <div class="panel-foot" id="input-status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="输出模式">
+            <button type="button" role="tab" data-mode="tree" aria-selected="true">树形</button>
+            <button type="button" role="tab" data-mode="path" aria-selected="false">JSONPath</button>
+            <button type="button" role="tab" data-mode="ts" aria-selected="false">TypeScript</button>
+            <button type="button" role="tab" data-mode="schema" aria-selected="false">Schema</button>
+            <button type="button" role="tab" data-mode="escape" aria-selected="false">转义</button>
+          </div>
+          <span class="spacer"></span>
+          <span class="head-actions" id="output-actions"></span>
+        </div>
+
+        <div class="panel-body" id="output"></div>
+
+        <div class="panel-foot" id="output-status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

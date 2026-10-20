@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>文本处理 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="text">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main text-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">文本</span>
+          <span class="spacer"></span>
+          <span class="hint" id="meta"></span>
+          <button class="btn btn-sm" type="button" id="btn-undo" title="撤销上一次处理">撤销</button>
+          <button class="btn btn-sm" type="button" id="btn-sample">示例</button>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+        </div>
+        <div class="panel-body flush">
+          <textarea
+            id="text"
+            class="mono"
+            spellcheck="false"
+            aria-label="待处理文本"
+            placeholder="粘贴或输入文本，然后使用右侧操作处理它…"
+          ></textarea>
+        </div>
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="操作分类">
+            <button type="button" role="tab" data-mode="case" aria-selected="true">大小写</button>
+            <button type="button" role="tab" data-mode="lines" aria-selected="false">行处理</button>
+            <button type="button" role="tab" data-mode="clean" aria-selected="false">清理</button>
+            <button type="button" role="tab" data-mode="escape" aria-selected="false">转义</button>
+            <button type="button" role="tab" data-mode="stats" aria-selected="false">统计</button>
+          </div>
+        </div>
+        <div class="panel-body" id="ops"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

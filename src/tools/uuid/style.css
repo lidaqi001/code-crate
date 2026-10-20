@@ -1,0 +1,144 @@
+/* UUID / 随机 专属样式 */
+
+.uuid-main {
+  max-width: 940px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.uuid-main .panel {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.opt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+
+.opt-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  align-items: center;
+  margin-bottom: var(--sp-3);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.output-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-2);
+}
+
+.output-list {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.output-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+}
+.output-item:last-child {
+  border-bottom: none;
+}
+.output-item:hover {
+  background: var(--surface-2);
+}
+
+.output-index {
+  flex: 0 0 28px;
+  color: var(--text-3);
+  font-size: 11px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.output-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-all;
+  user-select: all;
+}
+
+.output-extra {
+  flex: 0 0 auto;
+  font-size: 11px;
+  color: var(--text-3);
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+/* ── 强度计 ───────────────────────────────────────────────── */
+.strength {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+
+.strength-bar {
+  flex: 1 1 auto;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  transition: width var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.strength-fill.warn {
+  background: var(--warn);
+}
+.strength-fill.err {
+  background: var(--danger);
+}
+.strength-fill.ok {
+  background: var(--success);
+}
+
+.strength-text {
+  flex: 0 0 auto;
+  font-size: 11.5px;
+  color: var(--text-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── 校验结果 ─────────────────────────────────────────────── */
+.verify-ok {
+  border: 1px solid var(--success);
+  background: var(--success-soft);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: var(--sp-3);
+}
+.verify-bad {
+  border: 1px solid var(--danger);
+  background: var(--danger-soft);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: var(--sp-3);
+}
+.verify-title {
+  font-weight: 650;
+  font-size: 13px;
+  margin-bottom: 4px;
+}

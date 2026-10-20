@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>全部工具 · 码匣</title>
+    <script src="../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../core/tokens.css" />
+    <link rel="stylesheet" href="../core/base.css" />
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body class="home">
+    <header class="home-head">
+      <span class="logo" id="brand-logo" aria-hidden="true"></span>
+      <strong class="home-title">码匣</strong>
+      <span class="hint" id="count"></span>
+      <span class="spacer"></span>
+      <button class="btn btn-ghost" id="palette-btn" type="button" title="命令面板" aria-label="打开命令面板"></button>
+      <span id="theme-slot"></span>
+    </header>
+
+    <div class="home-search">
+      <span class="search-icon" id="search-icon" aria-hidden="true"></span>
+      <input
+        id="search"
+        type="search"
+        placeholder="搜索工具、功能或关键词…"
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="搜索工具"
+      />
+    </div>
+
+    <nav class="chips" id="cats" aria-label="按分类筛选"></nav>
+
+    <main class="home-grid" id="list" aria-label="全部工具"></main>
+
+    <footer class="home-foot">
+      <span><span class="kbd">↑</span><span class="kbd">↓</span> 选择</span>
+      <span><span class="kbd">Enter</span> 打开</span>
+      <span><span class="kbd">/</span> 搜索</span>
+      <span><span class="kbd">Ctrl K</span> 命令面板</span>
+      <span class="hint">Ctrl / ⌘ + 点击可在新标签页打开</span>
+    </footer>
+
+    <script type="module" src="home.js"></script>
+  </body>
+</html>

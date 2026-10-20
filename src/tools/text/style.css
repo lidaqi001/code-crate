@@ -1,0 +1,136 @@
+/* 文本处理专属样式 */
+
+.tool-main.text-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  .tool-main.text-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(240px, 1fr);
+  }
+}
+
+#text {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  line-height: 1.65;
+  resize: none;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+#text:focus {
+  box-shadow: none;
+}
+
+/* ── 操作区 ───────────────────────────────────────────────── */
+.op-section {
+  margin-bottom: var(--sp-4);
+}
+.op-section:last-child {
+  margin-bottom: 0;
+}
+
+.op-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-2);
+}
+
+.op-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(126px, 1fr));
+  gap: 5px;
+}
+
+.op-btn {
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.op-btn:hover {
+  background: var(--surface-3);
+  border-color: var(--accent);
+}
+.op-btn:active {
+  transform: translateY(1px);
+}
+
+.op-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  align-items: flex-end;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  margin-bottom: 6px;
+}
+
+.op-form .field {
+  flex: 0 1 140px;
+  min-width: 96px;
+}
+
+.op-form .field.grow-field {
+  flex: 1 1 180px;
+}
+
+.op-form input,
+.op-form select {
+  height: 27px;
+  font-size: 12px;
+}
+
+.op-form .btn {
+  flex: 0 0 auto;
+}
+
+/* ── 统计 ─────────────────────────────────────────────────── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: var(--sp-2);
+}
+
+.stat-box {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 9px 11px;
+}
+.stat-box .k {
+  font-size: 11px;
+  color: var(--text-3);
+}
+.stat-box .v {
+  font-size: 19px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  margin-top: 1px;
+}

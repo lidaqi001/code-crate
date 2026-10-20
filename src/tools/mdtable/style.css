@@ -1,0 +1,151 @@
+/* Markdown 表格生成器 */
+
+.tool-main.mdtable-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 980px) {
+  .tool-main.mdtable-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(320px, auto);
+  }
+}
+
+.head-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.head-toggle input {
+  margin: 0;
+}
+
+.grid-wrap {
+  overflow: auto;
+}
+
+.grid {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: max-content;
+  min-width: 100%;
+  font-size: 12px;
+}
+
+.grid th,
+.grid td {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  background: var(--surface);
+}
+
+.grid th {
+  background: var(--surface-2);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.grid tr:first-child th:first-child,
+.grid tr:first-child td:first-child {
+  border-top-left-radius: var(--radius-sm);
+}
+
+.grid input[type='text'] {
+  width: 100%;
+  min-width: 110px;
+  height: 32px;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+}
+
+.grid input[type='text']:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  background: var(--surface-2);
+}
+
+.grid th.corner,
+.grid td.corner {
+  width: 34px;
+  min-width: 34px;
+  text-align: center;
+}
+
+.grid .align-row th {
+  top: 32px;
+  z-index: 1;
+}
+
+.grid select {
+  width: 100%;
+  height: 26px;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: var(--text-2);
+  font-size: 11px;
+}
+
+.grid .delete {
+  border: 0;
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.grid .delete:hover {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.grid tbody tr:nth-child(even) td {
+  background: var(--surface-2);
+}
+
+.output-box {
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-all;
+  user-select: all;
+  max-height: 62vh;
+  overflow: auto;
+}
+
+.import-area {
+  width: 100%;
+  min-height: 260px;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.65;
+  resize: vertical;
+}
+
+.note {
+  font-size: 11.5px;
+  color: var(--text-3);
+  line-height: 1.6;
+  margin-top: var(--sp-2);
+}

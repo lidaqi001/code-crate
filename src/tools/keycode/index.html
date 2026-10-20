@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>按键速查 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="keycode">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main keycode-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">实时按键</span>
+          <span class="spacer"></span>
+          <span class="hint" id="live-hint"></span>
+        </div>
+        <div class="panel-body" id="live"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="field search-field">
+            <label class="sr-only" for="search">搜索按键</label>
+            <input id="search" type="text" placeholder="搜索 key / code / keyCode / 说明，例如 Enter、13、KeyA" autocomplete="off" spellcheck="false" aria-label="搜索按键" />
+          </div>
+          <span class="spacer"></span>
+          <span class="hint" id="count"></span>
+        </div>
+
+        <div class="panel-body flush">
+          <div class="chips" id="cats" aria-label="按分类筛选"></div>
+          <div class="key-table-wrap" id="table"></div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

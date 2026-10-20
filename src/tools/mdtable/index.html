@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Markdown 表格 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="mdtable">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main mdtable-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">表格</span>
+          <span class="spacer"></span>
+          <label class="head-toggle" for="has-header">
+            <input type="checkbox" id="has-header" checked />
+            <span>首行为表头</span>
+          </label>
+          <button class="btn btn-sm" type="button" id="btn-add-row">+ 行</button>
+          <button class="btn btn-sm" type="button" id="btn-add-col">+ 列</button>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-reset">清空</button>
+        </div>
+
+        <div class="panel-body flush grid-wrap">
+          <div id="grid"></div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="输出与导入">
+            <button type="button" role="tab" data-mode="output" aria-selected="true">Markdown</button>
+            <button type="button" role="tab" data-mode="import" aria-selected="false">导入</button>
+          </div>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+
+        <div class="panel-body" id="output"></div>
+        <div class="panel-foot" id="foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

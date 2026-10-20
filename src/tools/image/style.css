@@ -1,0 +1,223 @@
+/* 图片工具专属样式 */
+
+.tool-main.image-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 400px) minmax(0, 1fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 1040px) {
+  .tool-main.image-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(320px, auto);
+  }
+}
+
+.image-layout .panel {
+  min-height: 0;
+}
+
+#paste {
+  min-height: 58px;
+  font-size: 11.5px;
+  word-break: break-all;
+}
+
+input[type='file'] {
+  height: auto;
+  padding: 5px 7px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--sp-3);
+}
+.form-grid .field.full {
+  grid-column: 1 / -1;
+}
+.form-grid input,
+.form-grid select {
+  height: 30px;
+  font-size: 12.5px;
+}
+
+input[type='range'] {
+  width: 100%;
+  height: 22px;
+  accent-color: var(--accent);
+}
+
+.range-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.range-row output {
+  flex: 0 0 44px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+.stat-cell {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+}
+.stat-cell .k {
+  font-size: 10.5px;
+  color: var(--text-3);
+}
+.stat-cell .v {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 650;
+  margin-top: 1px;
+}
+.stat-cell .v.good {
+  color: var(--success);
+}
+.stat-cell .v.warn {
+  color: var(--warn);
+}
+
+.preview-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  padding: var(--sp-4);
+  background:
+    repeating-conic-gradient(var(--surface-2) 0% 25%, transparent 0% 50%) 50% / 16px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: var(--sp-3);
+  overflow: auto;
+}
+.preview-stage img,
+.preview-stage canvas {
+  max-width: 100%;
+  max-height: 380px;
+  display: block;
+}
+
+.empty-note {
+  color: var(--text-3);
+  font-size: 12px;
+  text-align: center;
+  padding: var(--sp-6) var(--sp-4);
+  line-height: 1.7;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.info-table th {
+  text-align: left;
+  font-size: 11px;
+  color: var(--text-3);
+  font-weight: 600;
+  padding: 5px 9px;
+  border-bottom: 1px solid var(--border);
+}
+.info-table td {
+  padding: 6px 9px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.info-table tr:last-child td {
+  border-bottom: none;
+}
+.info-table tr:hover {
+  background: var(--surface-2);
+}
+.col-label {
+  width: 150px;
+  color: var(--text-2);
+}
+.col-value {
+  font-family: var(--font-mono);
+  word-break: break-all;
+  user-select: all;
+}
+.col-hint {
+  width: 130px;
+  color: var(--text-3);
+  font-size: 11.5px;
+}
+
+.inline-error {
+  border: 1px solid var(--danger);
+  background: var(--danger-soft);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  color: var(--danger);
+  font-size: 12.5px;
+  display: flex;
+  gap: var(--sp-2);
+  align-items: flex-start;
+}
+
+.warn-note {
+  border: 1px solid var(--warn);
+  background: var(--warn-soft);
+  border-radius: var(--radius);
+  padding: 9px 11px;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin-top: var(--sp-3);
+}
+
+.note {
+  font-size: 11.5px;
+  color: var(--text-3);
+  line-height: 1.6;
+  margin-top: var(--sp-2);
+}
+
+.gps-link {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.source-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 9px 11px;
+  font-size: 12px;
+}
+.source-card .name {
+  font-weight: 600;
+  word-break: break-all;
+}
+.source-card .meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-3);
+  margin-top: 3px;
+}

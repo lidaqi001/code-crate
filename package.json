@@ -1,0 +1,19 @@
+{
+  "name": "codecrate-extension",
+  "version": "2.3.1",
+  "private": true,
+  "description": "码匣 CodeCrate — Manifest V3 扩展，原生 ESM，无需构建，零权限。",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "lint": "node scripts/check.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "check": "npm run lint && npm test",
+    "verify": "npm run lint && npm test && npm run smoke",
+    "package": "node scripts/package.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

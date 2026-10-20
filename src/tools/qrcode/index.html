@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>二维码工具 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="qrcode">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main qr-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">内容</span>
+          <span class="spacer"></span>
+          <span class="hint" id="spec-hint"></span>
+        </div>
+
+        <div class="panel-body flush">
+          <textarea
+            id="content"
+            class="mono"
+            spellcheck="false"
+            aria-label="二维码内容"
+            placeholder="输入要编码的内容，例如网址、文本、Wi-Fi 配置…"
+          ></textarea>
+        </div>
+
+        <div class="panel-foot">
+          <div class="qr-options" id="options"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">预览</span>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+
+        <div class="panel-body qr-preview-wrap">
+          <div class="qr-canvas-wrap" id="canvas-wrap">
+            <canvas id="canvas" aria-label="二维码预览"></canvas>
+          </div>
+          <div class="qr-meta" id="meta"></div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

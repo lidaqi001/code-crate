@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>压缩与解压 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="compress">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main compress-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="directions" role="tablist" aria-label="方向">
+            <button type="button" role="tab" data-direction="compress" aria-selected="true">压缩</button>
+            <button type="button" role="tab" data-direction="decompress" aria-selected="false">解压</button>
+          </div>
+          <span class="spacer"></span>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+        </div>
+
+        <div class="panel-body">
+          <div class="work-row">
+            <div class="field" id="format-field">
+              <label for="format">格式</label>
+              <select id="format" aria-label="压缩格式"></select>
+            </div>
+            <div class="field">
+              <label for="input-format">输入格式</label>
+              <select id="input-format" aria-label="输入格式"></select>
+            </div>
+            <div class="field">
+              <label for="output-format">输出格式</label>
+              <select id="output-format" aria-label="输出格式"></select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="input">输入内容</label>
+            <textarea id="input" class="mono" spellcheck="false" aria-label="输入内容"></textarea>
+          </div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">结果</span>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+        <div class="panel-body" id="output"></div>
+        <div class="panel-foot" id="foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

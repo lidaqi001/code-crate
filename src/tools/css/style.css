@@ -1,0 +1,192 @@
+/* CSS 生成器专属样式 */
+
+.tool-main.css-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 980px) {
+  .tool-main.css-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(320px, auto);
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sp-3);
+}
+
+.form-grid .field.full {
+  grid-column: 1 / -1;
+}
+
+.form-grid input,
+.form-grid select {
+  height: 30px;
+  font-size: 12.5px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+
+.section-label.first {
+  margin-top: 0;
+}
+
+.preset-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-2);
+}
+
+.chip {
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: 11.5px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.stop-list,
+.layer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stop-row,
+.layer-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+.stop-row input[type='color'],
+.layer-row input[type='color'] {
+  width: 32px;
+  height: 26px;
+  padding: 0 2px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: transparent;
+  flex: 0 0 auto;
+}
+
+.stop-row input[type='number'] {
+  width: 66px;
+}
+
+.layer-row .num {
+  width: 58px;
+}
+
+.layer-row .field-mini {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  color: var(--text-3);
+}
+
+.layer-row .field-mini input {
+  height: 26px;
+  font-size: 11.5px;
+}
+
+.layer-row .grow {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.stop-row .unit {
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.layer-row .inset-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.row-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.preview-stage {
+  display: grid;
+  place-items: center;
+  min-height: 210px;
+  padding: var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.gradient-swatch {
+  width: 100%;
+  min-height: 170px;
+  border-radius: var(--radius-sm);
+}
+
+.shadow-card {
+  width: 190px;
+  height: 120px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.code-box {
+  margin: var(--sp-3) 0 0;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-all;
+  user-select: all;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.note {
+  font-size: 11.5px;
+  color: var(--text-3);
+  line-height: 1.6;
+  margin-top: var(--sp-2);
+}

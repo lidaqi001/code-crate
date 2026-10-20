@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>文本 Diff · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="diff">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main diff-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="比较模式">
+            <button type="button" role="tab" data-mode="lines" aria-selected="true">文本行</button>
+            <button type="button" role="tab" data-mode="words" aria-selected="false">文本词</button>
+            <button type="button" role="tab" data-mode="json" aria-selected="false">JSON</button>
+          </div>
+          <span class="spacer"></span>
+          <button class="btn btn-sm" type="button" id="btn-swap">⇅ 交换</button>
+          <button class="btn btn-sm" type="button" id="btn-sample">示例</button>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+        </div>
+
+        <div class="panel-body flush">
+          <div class="opt-bar" id="opt-bar"></div>
+          <div class="diff-inputs">
+            <div class="diff-side">
+              <div class="side-head">
+                <span class="label">原内容</span>
+                <span class="grow"></span>
+                <span class="hint" id="left-meta"></span>
+              </div>
+              <textarea id="left" class="mono" spellcheck="false" aria-label="原内容" placeholder="粘贴原始文本…"></textarea>
+            </div>
+            <div class="diff-side">
+              <div class="side-head">
+                <span class="label">新内容</span>
+                <span class="grow"></span>
+                <span class="hint" id="right-meta"></span>
+              </div>
+              <textarea id="right" class="mono" spellcheck="false" aria-label="新内容" placeholder="粘贴修改后的文本…"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-foot" id="input-status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">差异</span>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+        <div class="panel-body flush" id="output"></div>
+        <div class="panel-foot" id="output-status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

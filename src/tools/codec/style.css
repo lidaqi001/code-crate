@@ -1,0 +1,285 @@
+/* 编解码 / 哈希 专属样式 */
+
+.codec-main {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.codec-main .panel {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* ── 转换类型：左栏分组卡片 ───────────────────────────────── */
+/* #stage 是 block，.codec-split 撑不开；侧栏另用 align-self:start 防止被拉伸
+   （早先写在 align-items 上，副作用是把右栏的输入/输出一起压住了）。 */
+.codec-main .panel-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.codec-split {
+  display: grid;
+  grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+  gap: var(--sp-4);
+  align-items: stretch;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.codec-methods {
+  align-self: start;
+}
+
+.codec-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.method-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-3);
+}
+
+.method-group-en {
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  opacity: 0.65;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.method-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 7px 9px;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+.method-card:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+.method-card[aria-checked="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.method-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.method-hint {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  line-height: 1.3;
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.method-card[aria-checked="true"] .method-hint {
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+/* ── 输入 / 输出：上下堆叠 ───────────────────────────────── */
+.codec-io {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-width: 0;
+  min-height: 0;
+}
+
+/* 输入 / 输出两个 field 平分剩余高度，各自内部的 textarea 再撑满 */
+.codec-io > .field {
+  flex: 1 1 0;
+  min-height: 0;
+}
+.codec-io > .field > textarea {
+  flex: 1 1 auto;
+  min-height: 120px;
+}
+
+.codec-io textarea {
+  min-height: 175px;
+}
+
+@media (max-width: 820px) {
+  .codec-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.field-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.field-head .grow {
+  flex: 1 1 auto;
+}
+
+/* ── 哈希结果表 ───────────────────────────────────────────── */
+.hash-list {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: var(--sp-3);
+}
+
+.hash-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.hash-row:last-child {
+  border-bottom: none;
+}
+.hash-row:hover {
+  background: var(--surface-2);
+}
+
+.hash-name {
+  flex: 0 0 92px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.hash-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  word-break: break-all;
+  color: var(--text);
+}
+.hash-value.pending {
+  color: var(--text-3);
+}
+
+/* ── JWT ──────────────────────────────────────────────────── */
+.jwt-status {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin: var(--sp-3) 0;
+  flex-wrap: wrap;
+}
+
+.jwt-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: var(--sp-3);
+}
+.jwt-block-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 6px 10px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.jwt-block pre {
+  margin: 0;
+  padding: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 320px;
+  overflow: auto;
+}
+
+.claims {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.claims th,
+.claims td {
+  text-align: left;
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.claims th {
+  color: var(--text-3);
+  font-weight: 600;
+  width: 140px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+.claims tr:last-child th,
+.claims tr:last-child td {
+  border-bottom: none;
+}
+.claims td {
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+
+/* ── 命名风格 ─────────────────────────────────────────────── */
+.naming-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.naming-row:last-child {
+  border-bottom: none;
+}
+.naming-label {
+  flex: 0 0 120px;
+  font-size: 11.5px;
+  color: var(--text-2);
+  font-weight: 600;
+}
+.naming-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  word-break: break-all;
+}
+
+.source-input {
+  min-height: 90px;
+  margin-bottom: var(--sp-3);
+}

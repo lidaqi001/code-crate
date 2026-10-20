@@ -1,0 +1,170 @@
+/* 密码与随机串 */
+
+.tool-main.password-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 980px) {
+  .tool-main.password-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--sp-3);
+}
+
+.form-grid .field.full {
+  grid-column: 1 / -1;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+
+.section-label.first {
+  margin-top: 0;
+}
+
+.preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.chip {
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: 11.5px;
+  cursor: pointer;
+}
+
+.chip:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.toggle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 6px;
+  margin-bottom: var(--sp-2);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.toggle input {
+  margin: 0;
+}
+
+.password-value {
+  width: 100%;
+  height: 52px;
+  padding: 0 12px;
+  font-family: var(--font-mono);
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+
+.strength {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: var(--sp-3);
+}
+
+.strength-bar {
+  flex: 1 1 auto;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.strength-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  transition: width var(--dur) var(--ease);
+}
+
+.strength-bar .bad { background: var(--danger); }
+.strength-bar .warn { background: var(--warn); }
+.strength-bar .good { background: var(--success); }
+
+.strength-label {
+  flex: 0 0 auto;
+  font-size: 11.5px;
+  color: var(--text-2);
+}
+
+.strength-bits {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+.random-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  align-items: flex-end;
+}
+
+.random-row .field {
+  flex: 0 0 auto;
+}
+
+.random-row .field.wide {
+  flex: 1 1 200px;
+}
+
+.random-value {
+  width: 100%;
+  height: 34px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.note {
+  font-size: 11.5px;
+  color: var(--text-3);
+  line-height: 1.6;
+  margin-top: var(--sp-2);
+}
+
+.inline-error {
+  border: 1px solid var(--danger);
+  background: var(--danger-soft);
+  border-radius: var(--radius);
+  padding: 9px 11px;
+  color: var(--danger);
+  font-size: 12px;
+}

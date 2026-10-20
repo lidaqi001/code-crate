@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Markdown 预览 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="markdown">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main md-layout" id="md-layout">
+      <section class="panel">
+        <div class="panel-head md-toolbar" id="editor-head">
+          <div class="md-toolbar-items" id="toolbar"></div>
+        </div>
+        <div class="panel-body flush" id="editor-body">
+          <textarea
+            id="editor"
+            class="mono"
+            spellcheck="false"
+            aria-label="Markdown 源码"
+            placeholder="在这里输入 Markdown…"
+          ></textarea>
+        </div>
+        <div class="panel-foot" id="editor-status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="视图切换">
+            <button type="button" role="tab" data-mode="preview" aria-selected="true">预览</button>
+            <button type="button" role="tab" data-mode="html" aria-selected="false">HTML</button>
+            <button type="button" role="tab" data-mode="toc" aria-selected="false">目录</button>
+          </div>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+        <div class="panel-body" id="output"></div>
+        <div class="panel-foot" id="output-status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

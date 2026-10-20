@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>HTTP / cURL · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="http">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main http-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">请求</span>
+          <span class="spacer"></span>
+          <button class="btn btn-sm" type="button" id="btn-sample">示例</button>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+        </div>
+
+        <div class="panel-body">
+          <div class="request-line">
+            <select id="method" aria-label="请求方法"></select>
+            <input id="url" type="text" class="mono" spellcheck="false" placeholder="https://api.example.com/users" aria-label="请求地址" />
+            <button class="btn btn-primary" type="button" id="btn-send">发送</button>
+            <button class="btn btn-danger" type="button" id="btn-abort" hidden>中止</button>
+          </div>
+
+          <div class="segmented sub-tabs" id="sub-tabs" role="tablist" aria-label="请求配置">
+            <button type="button" role="tab" data-sub="headers" aria-selected="true">请求头</button>
+            <button type="button" role="tab" data-sub="body" aria-selected="false">请求体</button>
+            <button type="button" role="tab" data-sub="curl" aria-selected="false">粘贴 cURL</button>
+          </div>
+
+          <div class="sub-panel" id="sub-panel"></div>
+
+          <div class="row timeout-row">
+            <span class="label">超时</span>
+            <input type="number" id="timeout" min="1" max="120" value="15" aria-label="超时秒数" class="mono" />
+            <span class="hint">秒</span>
+            <span class="grow"></span>
+            <span class="hint" id="perm-summary"></span>
+          </div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="结果视图">
+            <button type="button" role="tab" data-mode="response" aria-selected="true">响应</button>
+            <button type="button" role="tab" data-mode="status" aria-selected="false">状态码</button>
+            <button type="button" role="tab" data-mode="mime" aria-selected="false">MIME</button>
+            <button type="button" role="tab" data-mode="tools" aria-selected="false">解析工具</button>
+            <button type="button" role="tab" data-mode="history" aria-selected="false">历史</button>
+          </div>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+        <div class="panel-body" id="output"></div>
+        <div class="panel-foot" id="perm-foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

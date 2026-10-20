@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>文件权限计算 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="chmod">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main chmod-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">权限</span>
+          <span class="spacer"></span>
+          <button class="btn btn-sm" type="button" id="btn-clear">归零</button>
+        </div>
+
+        <div class="panel-body">
+          <div class="field">
+            <label for="mode-input">八进制或符号（自动识别）</label>
+            <input
+              id="mode-input"
+              type="text"
+              class="mono mode-input"
+              spellcheck="false"
+              autocomplete="off"
+              aria-label="权限输入"
+              placeholder="755 或 rwxr-xr-x 或 -rwxr-xr-x"
+            />
+          </div>
+
+          <div class="section-label">逐位勾选</div>
+          <div id="grid" class="perm-grid"></div>
+
+          <div class="section-label">常用权限</div>
+          <div id="common" class="common-list"></div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">结果</span>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+
+        <div class="panel-body" id="output"></div>
+
+        <div class="panel-foot" id="foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

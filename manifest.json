@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "码匣 CodeCrate",
+  "version": "2.3.1",
+  "description": "面向开发者的高频工具箱：JSON、编解码/哈希、时间戳、UUID、正则、Diff、颜色、二维码、HTTP 等。零权限、纯本地。",
+  "minimum_chrome_version": "110",
+  "permissions": [],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "码匣 CodeCrate",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; base-uri 'none'; form-action 'none'"
+  }
+}

@@ -1,0 +1,261 @@
+/* Markdown 工具专属样式 */
+
+.tool-main.md-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  .tool-main.md-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(260px, 1fr);
+  }
+}
+
+/* ── 折叠编辑区 ───────────────────────────────────────────── */
+/* 折叠后左栏只剩一条工具头，预览独占整行。
+   选择器比上面那条媒体查询多一个类，窄屏下同样生效。
+   工具行与提示/按钮的通用规则在 core/base.css 的「面板折叠」一节。 */
+.tool-main.md-layout.is-folded {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.md-layout.is-folded #editor-body,
+.md-layout.is-folded #editor-status {
+  display: none;
+}
+
+/* ── 工具栏 ───────────────────────────────────────────────── */
+.md-toolbar {
+  gap: var(--sp-2);
+  min-height: 38px;
+}
+
+/* 工具按钮单独一层，自己换行；折叠条由 createFold() 追加在这一层之外，
+   这样 renderToolbar() 清空按钮时不会把它一起清掉 */
+.md-toolbar-items {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.md-toolbar .btn-icon {
+  width: 26px;
+  height: 24px;
+  font-size: 11px;
+  border-color: transparent;
+  color: var(--text-2);
+}
+.md-toolbar .btn-icon:hover {
+  background: var(--surface-3);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.md-toolbar .divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border);
+  margin: 0 3px;
+}
+
+#editor {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  resize: none;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+#editor:focus {
+  box-shadow: none;
+}
+
+/* ── 预览排版 ─────────────────────────────────────────────── */
+.md-preview {
+  font-size: 13px;
+  line-height: 1.75;
+  word-wrap: break-word;
+}
+
+.md-preview > *:first-child {
+  margin-top: 0;
+}
+
+.md-preview h1,
+.md-preview h2,
+.md-preview h3,
+.md-preview h4,
+.md-preview h5,
+.md-preview h6 {
+  margin: 1.3em 0 0.5em;
+  line-height: 1.3;
+  font-weight: 650;
+}
+.md-preview h1 {
+  font-size: 1.7em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25em;
+}
+.md-preview h2 {
+  font-size: 1.4em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2em;
+}
+.md-preview h3 {
+  font-size: 1.18em;
+}
+.md-preview h4 {
+  font-size: 1.05em;
+}
+.md-preview h5,
+.md-preview h6 {
+  font-size: 1em;
+  color: var(--text-2);
+}
+
+.md-preview p {
+  margin: 0.7em 0;
+}
+
+.md-preview a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.md-preview a:hover {
+  text-decoration: underline;
+}
+
+.md-preview code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--surface-3);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+
+.md-preview pre {
+  margin: 0.8em 0;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: auto;
+}
+.md-preview pre code {
+  background: none;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.md-preview blockquote {
+  margin: 0.8em 0;
+  padding: 0.1em 0 0.1em 14px;
+  border-left: 3px solid var(--border-strong);
+  color: var(--text-2);
+}
+
+.md-preview ul,
+.md-preview ol {
+  margin: 0.7em 0;
+  padding-left: 1.6em;
+}
+.md-preview li {
+  margin: 0.25em 0;
+}
+.md-preview li.task {
+  list-style: none;
+  margin-left: -1.35em;
+}
+.md-preview li.task input {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.md-preview hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.4em 0;
+}
+
+.md-preview table {
+  border-collapse: collapse;
+  margin: 0.9em 0;
+  width: 100%;
+  font-size: 12.5px;
+}
+.md-preview th,
+.md-preview td {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+}
+.md-preview th {
+  background: var(--surface-2);
+  font-weight: 650;
+}
+
+.md-preview img {
+  max-width: 100%;
+  border-radius: var(--radius);
+}
+
+.md-preview .blocked {
+  color: var(--danger);
+  font-size: 0.86em;
+  background: var(--danger-soft);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+/* ── HTML 源码与目录 ──────────────────────────────────────── */
+.html-source {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.toc-item {
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 12.5px;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.toc-item:hover {
+  background: var(--surface-2);
+  color: var(--accent);
+}
+.toc-level {
+  flex: 0 0 auto;
+  font-size: 10.5px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+}
+
+.md-preview [id^="md-h-"] {
+  scroll-margin-top: 12px;
+}

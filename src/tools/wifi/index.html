@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Wi-Fi 二维码 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="wifi">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main wifi-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">网络信息</span>
+          <span class="spacer"></span>
+          <button class="btn btn-sm" type="button" id="btn-sample">示例</button>
+        </div>
+
+        <div class="panel-body">
+          <div class="field">
+            <label for="ssid">网络名称（SSID）</label>
+            <input type="text" id="ssid" spellcheck="false" autocomplete="off" aria-label="网络名称" placeholder="MyWiFi" />
+          </div>
+
+          <div class="field" id="password-field">
+            <label for="password">密码</label>
+            <div class="password-row">
+              <input type="password" id="password" spellcheck="false" autocomplete="off" aria-label="密码" placeholder="至少 8 个字符" />
+              <button class="btn btn-sm" type="button" id="btn-reveal">显示</button>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="security">加密方式</label>
+              <select id="security" aria-label="加密方式"></select>
+            </div>
+            <div class="field">
+              <label for="hidden-wrap">隐藏网络</label>
+              <label class="check" for="hidden" id="hidden-wrap">
+                <input type="checkbox" id="hidden" />
+                <span>该网络不广播 SSID</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="section-label">校验</div>
+          <div id="problems"></div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">二维码</span>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+        <div class="panel-body" id="output"></div>
+        <div class="panel-foot" id="foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

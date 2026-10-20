@@ -1,0 +1,346 @@
+/* JSON 工具专属样式：编辑器、树形视图、结果列表 */
+
+.tool-main.json-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 880px) {
+  .tool-main.json-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(240px, 1fr);
+  }
+}
+
+/* ── 折叠输入区 ───────────────────────────────────────────── */
+/* 折叠后左栏只剩一条工具头，输出独占整行。
+   选择器比上面那条媒体查询多一个类，窄屏下同样生效。
+   工具头与折叠条的通用规则在 core/base.css 的「面板折叠」一节——
+   折叠时 head 里除折叠条外全部隐藏，所以这里的按钮不用各自写规则。 */
+.tool-main.json-layout.is-folded {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.json-layout.is-folded #input-body,
+.json-layout.is-folded #input-status {
+  display: none;
+}
+
+.mini-select {
+  width: auto;
+  height: 24px;
+  padding: 0 22px 0 8px;
+  font-size: 11.5px;
+}
+
+.head-actions {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* ── 编辑器与行号 ─────────────────────────────────────────── */
+.editor-wrap {
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.gutter {
+  flex: 0 0 auto;
+  min-width: 38px;
+  padding: 10px 8px 40px 10px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-3);
+  background: var(--surface-2);
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  user-select: none;
+}
+
+#json-input {
+  flex: 1 1 auto;
+  width: auto;
+  min-height: 0;
+  padding: 10px 12px 40px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  resize: none;
+  overflow: auto;
+  white-space: pre;
+  tab-size: 2;
+}
+#json-input:focus {
+  box-shadow: none;
+}
+
+/* ── 面板底部状态 ─────────────────────────────────────────── */
+.panel-foot {
+  flex: 0 0 auto;
+  padding: 6px var(--sp-3);
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: 11.5px;
+  color: var(--text-2);
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.panel-foot .err {
+  color: var(--danger);
+}
+.panel-foot .ok {
+  color: var(--success);
+}
+.panel-foot .pos {
+  color: var(--text-3);
+  font-family: var(--font-mono);
+}
+
+/* ── 树形视图 ─────────────────────────────────────────────── */
+.jt {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.jt-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 0 2px;
+  border-radius: var(--radius-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.jt-row:hover {
+  background: var(--surface-2);
+}
+
+.jt-toggle {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 18px;
+  border: none;
+  background: none;
+  color: var(--text-3);
+  cursor: pointer;
+  font-size: 9px;
+  line-height: 1;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  transition: transform var(--dur) var(--ease);
+}
+.jt-toggle:hover {
+  color: var(--text);
+}
+.jt-node.collapsed > .jt-row .jt-toggle {
+  transform: rotate(-90deg);
+}
+.jt-node.collapsed > .jt-children {
+  display: none;
+}
+
+.jt-spacer {
+  flex: 0 0 auto;
+  width: 14px;
+}
+
+/* 键名、冒号、条目计数都是不可拆的原子片段：长 value 必须自己折行，
+   不能反过来把 key 挤成一列一个字符。
+   flex 项默认 min-width:auto，在 .jt-row 的 word-break:break-word 下
+   会退化成 1 个字符宽，所以这里必须显式禁止收缩。 */
+.jt-key,
+.jt-colon,
+.jt-meta {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.jt-key {
+  color: var(--token-key);
+}
+.jt-colon {
+  color: var(--text-3);
+}
+
+.jt-string {
+  color: var(--token-string);
+}
+.jt-number {
+  color: var(--token-number);
+}
+.jt-boolean {
+  color: var(--token-bool);
+}
+.jt-null {
+  color: var(--token-null);
+  font-style: italic;
+}
+
+.jt-meta {
+  color: var(--text-3);
+  font-size: 11px;
+  margin-left: 4px;
+}
+
+.jt-copy {
+  flex: 0 0 auto;
+  margin-left: auto;
+  border: none;
+  background: none;
+  color: var(--text-3);
+  cursor: pointer;
+  padding: 0 3px;
+  opacity: 0;
+  line-height: 1;
+}
+.jt-row:hover .jt-copy {
+  opacity: 1;
+}
+.jt-copy:hover {
+  color: var(--accent);
+}
+
+.jt-children {
+  padding-left: 14px;
+  border-left: 1px dashed var(--border);
+  margin-left: 6px;
+}
+
+/* ── JSONPath ─────────────────────────────────────────────── */
+.path-bar {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: center;
+  margin-bottom: var(--sp-3);
+}
+.path-bar input {
+  font-family: var(--font-mono);
+}
+
+.match-count {
+  font-size: 11.5px;
+  color: var(--text-2);
+  margin-bottom: var(--sp-2);
+}
+
+.match {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.match-path {
+  padding: 4px 8px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.match-path .grow {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.match-value {
+  margin: 0;
+  padding: 6px 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 220px;
+  overflow: auto;
+}
+
+/* ── 代码输出 ─────────────────────────────────────────────── */
+.code-out {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre;
+  overflow: auto;
+  tab-size: 2;
+}
+
+.sub-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+.sub-bar input {
+  width: 160px;
+}
+
+.escape-grid {
+  display: grid;
+  gap: var(--sp-3);
+}
+.escape-grid textarea {
+  min-height: 120px;
+}
+
+/* ── 空状态与错误 ─────────────────────────────────────────── */
+.issue {
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.issue.error {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.issue .issue-msg {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.issue .issue-pos {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  opacity: 0.85;
+}
+.issue .issue-fix {
+  margin-top: 8px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--sp-2);
+}
+.stat {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 9px;
+}
+.stat .stat-label {
+  font-size: 11px;
+  color: var(--text-3);
+}
+.stat .stat-value {
+  font-size: 14px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}

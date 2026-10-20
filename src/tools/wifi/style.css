@@ -1,0 +1,151 @@
+/* Wi-Fi 二维码专属样式 */
+
+.tool-main.wifi-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 980px) {
+  .tool-main.wifi-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+.form-grid input,
+.form-grid select {
+  height: 30px;
+}
+
+.password-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.password-row input {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-mono);
+}
+.password-row .btn {
+  flex: 0 0 auto;
+}
+
+#hidden-wrap {
+  height: 30px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+
+.problem-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.problem-list li {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  font-size: 11.5px;
+  line-height: 1.5;
+  padding: 6px 9px;
+  border-radius: var(--radius-sm);
+}
+.problem-list li.err {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.problem-list li.warn {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+.problem-list li.ok {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* ── 二维码 ───────────────────────────────────────────────── */
+.qr-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+}
+.qr-stage canvas {
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  padding: 10px;
+  image-rendering: pixelated;
+}
+
+.ssid-caption {
+  text-align: center;
+}
+.ssid-caption .name {
+  font-size: 16px;
+  font-weight: 650;
+}
+.ssid-caption .meta {
+  font-size: 11.5px;
+  color: var(--text-3);
+  margin-top: 3px;
+}
+
+.code-box {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  word-break: break-all;
+  white-space: pre-wrap;
+  user-select: all;
+  margin: 0;
+}
+
+.empty-note {
+  color: var(--text-3);
+  font-size: 12px;
+  text-align: center;
+  padding: var(--sp-5);
+}
+
+.note {
+  font-size: 11.5px;
+  color: var(--text-3);
+  line-height: 1.6;
+  margin-top: var(--sp-2);
+}
+
+.privacy-note {
+  border: 1px solid var(--warn);
+  background: var(--warn-soft);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--text-2);
+  margin-top: var(--sp-3);
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>正则测试 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="regex">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main regex-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">表达式</span>
+          <span class="spacer"></span>
+          <span id="risk-slot"></span>
+        </div>
+
+        <div class="panel-body">
+          <div class="pattern-row">
+            <span class="delim">/</span>
+            <input
+              id="pattern"
+              class="mono"
+              type="text"
+              spellcheck="false"
+              autocomplete="off"
+              aria-label="正则表达式"
+              placeholder="例如 \d{4}-\d{2}-\d{2}"
+            />
+            <span class="delim">/</span>
+            <span id="flags-display" class="mono flags-display"></span>
+          </div>
+
+          <div class="opt-row" id="flag-row" role="group" aria-label="匹配标志"></div>
+
+          <div class="field">
+            <div class="field-head">
+              <label for="text">测试文本</label>
+              <span class="grow"></span>
+              <span id="match-count" class="hint"></span>
+            </div>
+            <textarea
+              id="text"
+              class="mono"
+              spellcheck="false"
+              placeholder="粘贴需要测试的文本…"
+              aria-label="测试文本"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="结果视图">
+            <button type="button" role="tab" data-mode="matches" aria-selected="true">匹配列表</button>
+            <button type="button" role="tab" data-mode="highlight" aria-selected="false">高亮</button>
+            <button type="button" role="tab" data-mode="replace" aria-selected="false">替换</button>
+            <button type="button" role="tab" data-mode="explain" aria-selected="false">解释</button>
+            <button type="button" role="tab" data-mode="cheatsheet" aria-selected="false">速查</button>
+          </div>
+          <span class="spacer"></span>
+          <span id="actions" class="row"></span>
+        </div>
+        <div class="panel-body" id="output"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

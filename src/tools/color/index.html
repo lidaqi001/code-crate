@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>颜色工具 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="color">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main color-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">颜色</span>
+          <span class="spacer"></span>
+          <button class="btn btn-sm" type="button" id="btn-random" title="随机颜色">随机</button>
+          <button class="btn btn-sm" type="button" id="btn-swap-compare">与对比色互换</button>
+        </div>
+
+        <div class="panel-body">
+          <div class="swatch-row">
+            <div class="swatch" id="swatch" aria-label="颜色预览"></div>
+            <div class="swatch-meta">
+              <input type="color" id="picker" aria-label="选择颜色" />
+              <div class="field grow-field">
+                <label for="hex-input">HEX / 颜色名 / rgb() / hsl()</label>
+                <input type="text" id="hex-input" class="mono" spellcheck="false" aria-label="颜色文本" />
+              </div>
+            </div>
+          </div>
+
+          <div class="channel-grid" id="channels"></div>
+
+          <div class="field" id="alpha-field">
+            <div class="field-head">
+              <label for="alpha">透明度</label>
+              <span class="grow"></span>
+              <strong id="alpha-value" class="mono">100%</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-foot" id="input-status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="结果视图">
+            <button type="button" role="tab" data-mode="contrast" aria-selected="true">对比度</button>
+            <button type="button" role="tab" data-mode="scale" aria-selected="false">色阶</button>
+            <button type="button" role="tab" data-mode="harmony" aria-selected="false">配色</button>
+            <button type="button" role="tab" data-mode="formats" aria-selected="false">格式</button>
+          </div>
+        </div>
+        <div class="panel-body" id="output"></div>
+        <div class="panel-foot" id="status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

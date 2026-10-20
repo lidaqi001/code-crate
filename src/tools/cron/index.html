@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Cron 表达式 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="cron">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main cron-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">表达式</span>
+          <span class="spacer"></span>
+          <button class="btn btn-sm" type="button" id="btn-sample">示例</button>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+        </div>
+
+        <div class="panel-body">
+          <div class="field">
+            <label for="expression">Cron 表达式</label>
+            <input
+              id="expression"
+              type="text"
+              class="mono expression-input"
+              spellcheck="false"
+              autocomplete="off"
+              aria-label="Cron 表达式"
+              placeholder="例如 0 3 * * *"
+            />
+          </div>
+
+          <div class="field-note" id="shape"></div>
+
+          <div class="section-title">常用表达式</div>
+          <div class="common-list" id="common"></div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">解析结果</span>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+
+        <div class="panel-body" id="output"></div>
+
+        <div class="panel-foot" id="foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

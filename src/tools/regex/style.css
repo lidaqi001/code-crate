@@ -1,0 +1,240 @@
+/* 正则工具专属样式 */
+
+.tool-main.regex-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  .tool-main.regex-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(260px, 1fr);
+  }
+}
+
+/* ── 表达式输入行 ─────────────────────────────────────────── */
+.pattern-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elev);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.pattern-row:focus-within {
+  border-color: var(--accent);
+  box-shadow: var(--ring);
+}
+.pattern-row.invalid {
+  border-color: var(--danger);
+}
+
+.pattern-row .delim {
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  flex: 0 0 auto;
+}
+
+.pattern-row input {
+  flex: 1 1 auto;
+  border: none;
+  background: transparent;
+  padding: 2px 0;
+  font-size: 13px;
+}
+.pattern-row input:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.flags-display {
+  color: var(--accent);
+  font-size: 12px;
+  flex: 0 0 auto;
+  min-width: 10px;
+}
+
+/* ── 匹配列表 ─────────────────────────────────────────────── */
+.match-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.match-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 5px 9px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-size: 11.5px;
+}
+.match-ordinal {
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.match-range {
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.match-body {
+  padding: 7px 9px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 180px;
+  overflow: auto;
+}
+.match-body.empty {
+  color: var(--text-3);
+  font-style: italic;
+}
+
+.group-row {
+  display: flex;
+  gap: var(--sp-2);
+  padding: 4px 9px;
+  border-top: 1px dashed var(--border);
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+}
+.group-name {
+  flex: 0 0 auto;
+  color: var(--token-bool);
+}
+.group-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-all;
+  color: var(--token-string);
+}
+.group-value.unmatched {
+  color: var(--text-3);
+  font-style: italic;
+}
+
+/* ── 高亮视图 ─────────────────────────────────────────────── */
+.highlight-view {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.7;
+  font-size: 12.5px;
+}
+
+.highlight-view mark {
+  background: var(--accent-soft);
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+.highlight-view mark:hover {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.zero-width {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--warn);
+  vertical-align: text-bottom;
+  margin: 0 1px;
+}
+
+/* ── 解释表 ───────────────────────────────────────────────── */
+.explain-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.explain-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.explain-table td:first-child {
+  width: 38%;
+  font-family: var(--font-mono);
+  color: var(--token-key);
+  word-break: break-all;
+}
+.explain-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── 速查表 ───────────────────────────────────────────────── */
+.cheat-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+.cheat-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: 4px;
+}
+.cheat-name {
+  font-weight: 600;
+  font-size: 12.5px;
+}
+.cheat-pattern {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--token-string);
+  word-break: break-all;
+  background: var(--surface-2);
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+}
+.cheat-note {
+  color: var(--text-3);
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* ── 风险提示 ─────────────────────────────────────────────── */
+.risk-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--warn);
+  cursor: help;
+}
+
+.replace-result {
+  min-height: 160px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── 撑满修复 ─────────────────────────────────────────────── */
+/* .panel-body 是 block，测试文本框外面那个 .field 也没写 flex-grow，
+   所以 774px 的面板里文本框只有 51px。 */
+.regex-layout .panel-body {
+  display: flex;
+  flex-direction: column;
+}
+.regex-layout .panel-body > .field {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.regex-layout .panel-body > .field > textarea {
+  flex: 1 1 auto;
+  min-height: 120px;
+}

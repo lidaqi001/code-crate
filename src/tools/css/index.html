@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>CSS 生成器 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="css">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main css-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="生成器类型">
+            <button type="button" role="tab" data-mode="gradient" aria-selected="true">渐变</button>
+            <button type="button" role="tab" data-mode="shadow" aria-selected="false">阴影</button>
+          </div>
+          <span class="spacer"></span>
+          <button class="btn btn-sm" type="button" id="btn-reset">恢复默认</button>
+        </div>
+        <div class="panel-body" id="form"></div>
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">预览与代码</span>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+        <div class="panel-body" id="preview"></div>
+        <div class="panel-foot" id="foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

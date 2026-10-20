@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>IP / 子网计算 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="ip">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main ip-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">输入</span>
+          <span class="spacer"></span>
+          <button class="btn btn-sm" type="button" id="btn-sample">示例</button>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+        </div>
+        <div class="panel-body flush">
+          <textarea
+            id="input"
+            class="mono"
+            spellcheck="false"
+            aria-label="IP 或网段"
+            placeholder="每行一个地址或网段，例如：&#10;192.168.1.10/24&#10;2001:db8::1/64&#10;8.8.8.8"
+          ></textarea>
+        </div>
+        <div class="panel-foot" id="input-status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">解析结果</span>
+          <span class="spacer"></span>
+          <span class="hint" id="count"></span>
+        </div>
+        <div class="panel-body" id="output"></div>
+        <div class="panel-foot" id="status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

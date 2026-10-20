@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>文件哈希与编码 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="file">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main file-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <span class="panel-title">文件</span>
+          <span class="spacer"></span>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+        </div>
+
+        <div class="panel-body">
+          <label class="drop-zone" id="drop" for="file">
+            <span class="drop-icon" id="drop-icon" aria-hidden="true"></span>
+            <strong>拖入文件，或点击选择</strong>
+            <span class="drop-hint">所有计算都在本机完成，文件不会上传</span>
+            <input type="file" id="file" aria-label="选择文件" />
+          </label>
+
+          <div class="section-label">文件信息</div>
+          <div id="file-info"></div>
+
+          <div class="note">
+            哈希支持 MD5 / CRC32 / SHA-1 / SHA-256 / SHA-384 / SHA-512；编码支持 Base64 / Data URI / 十六进制。
+            超过 8 MB 的文本输出需要手动确认，避免页面卡顿。
+          </div>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="输出类型">
+            <button type="button" role="tab" data-mode="hashes" aria-selected="true">哈希</button>
+            <button type="button" role="tab" data-mode="base64" aria-selected="false">Base64</button>
+            <button type="button" role="tab" data-mode="datauri" aria-selected="false">Data URI</button>
+            <button type="button" role="tab" data-mode="hex" aria-selected="false">十六进制</button>
+          </div>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+
+        <div class="panel-body" id="output"></div>
+        <div class="panel-foot" id="foot"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

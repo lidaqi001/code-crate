@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>进制与单位 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="units">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main units-layout">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="segmented" id="modes" role="tablist" aria-label="功能切换">
+            <button type="button" role="tab" data-mode="base" aria-selected="true">进制转换</button>
+            <button type="button" role="tab" data-mode="bits" aria-selected="false">位运算</button>
+            <button type="button" role="tab" data-mode="units" aria-selected="false">单位换算</button>
+          </div>
+          <span class="spacer"></span>
+          <span class="hint" id="hint"></span>
+        </div>
+        <div class="panel-body" id="stage"></div>
+        <div class="panel-foot" id="status"></div>
+      </div>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>

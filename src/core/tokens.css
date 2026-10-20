@@ -1,0 +1,138 @@
+/* 码匣 CodeCrate 设计令牌 — 深色为默认，浅色通过 [data-theme="light"] 覆盖 */
+
+:root {
+  color-scheme: dark;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  /* 层次 */
+  --bg: #0e1014;
+  --bg-elev: #14171d;
+  --surface: #181c23;
+  --surface-2: #1f242c;
+  --surface-3: #262c36;
+  --surface-hover: #232935;
+  --overlay: rgba(6, 8, 12, 0.62);
+
+  /* 描边 */
+  --border: #272e39;
+  --border-strong: #38414f;
+  --border-focus: var(--accent);
+
+  /* 文本 */
+  --text: #e7eaf0;
+  --text-2: #a6aebc;
+  --text-3: #6d7684;
+  --text-inverse: #0e1014;
+
+  /* 主色与语义色 */
+  --accent: #5b8cff;
+  --accent-hover: #729cff;
+  --accent-active: #4a7bf0;
+  --accent-soft: rgba(91, 140, 255, 0.14);
+  --accent-text: #ffffff;
+
+  --success: #3fb950;
+  --success-soft: rgba(63, 185, 80, 0.14);
+  --warn: #d29922;
+  --warn-soft: rgba(210, 153, 34, 0.14);
+  --danger: #f85149;
+  --danger-soft: rgba(248, 81, 73, 0.14);
+  --info: #58a6ff;
+  --info-soft: rgba(88, 166, 255, 0.14);
+
+  /* Diff 与语法标记 */
+  --diff-add-bg: rgba(63, 185, 80, 0.14);
+  --diff-add-text: #7ee787;
+  --diff-del-bg: rgba(248, 81, 73, 0.13);
+  --diff-del-text: #ff9d95;
+  --token-key: #79c0ff;
+  --token-string: #a5d6ff;
+  --token-number: #ffa657;
+  --token-bool: #d2a8ff;
+  --token-null: #8b949e;
+
+  /* 品牌标识（logo 专用）。刻意用暖色与冷色的 --accent 拉开：
+     标识是识别物，不该和 UI 主色混成一片。
+     这套值不随深浅色切换——logo 是品牌资产，换个主题就变色反而认不出来。 */
+  --brand-1: #f7a83a;
+  --brand-2: #f2612f;
+  --brand-ink: #2b1608; /* 压在暖色渐变上的字形色；白色对比度只有 2:1，16px 会糊 */
+
+  /* 形状与层次感 */
+  --radius-sm: 5px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.46), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --ring: 0 0 0 3px var(--accent-soft);
+
+  /* 节奏 */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 28px;
+
+  --dur-fast: 0.1s;
+  --dur: 0.16s;
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+
+  --header-h: 46px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f4f6f9;
+  --bg-elev: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f5f7fa;
+  --surface-3: #eceff4;
+  --surface-hover: #eff2f7;
+  --overlay: rgba(24, 30, 40, 0.42);
+
+  --border: #dde2ea;
+  --border-strong: #c2cad6;
+
+  --text: #1a2029;
+  --text-2: #5a6472;
+  --text-3: #8b95a3;
+  --text-inverse: #ffffff;
+
+  --accent: #3161e0;
+  --accent-hover: #2454cf;
+  --accent-active: #1d47b4;
+  --accent-soft: rgba(49, 97, 224, 0.1);
+  --accent-text: #ffffff;
+
+  --success: #1a7f37;
+  --success-soft: rgba(26, 127, 55, 0.1);
+  --warn: #9a6700;
+  --warn-soft: rgba(154, 103, 0, 0.1);
+  --danger: #cf222e;
+  --danger-soft: rgba(207, 34, 46, 0.09);
+  --info: #0969da;
+  --info-soft: rgba(9, 105, 218, 0.1);
+
+  --diff-add-bg: rgba(26, 127, 55, 0.1);
+  --diff-add-text: #116329;
+  --diff-del-bg: rgba(207, 34, 46, 0.08);
+  --diff-del-text: #a40e26;
+  --token-key: #0550ae;
+  --token-string: #0a3069;
+  --token-number: #953800;
+  --token-bool: #8250df;
+  --token-null: #6e7781;
+
+  --shadow-sm: 0 1px 2px rgba(27, 31, 36, 0.08);
+  --shadow: 0 2px 8px rgba(27, 31, 36, 0.1), 0 1px 2px rgba(27, 31, 36, 0.06);
+  --shadow-lg: 0 16px 48px rgba(27, 31, 36, 0.18), 0 2px 8px rgba(27, 31, 36, 0.08);
+  --ring: 0 0 0 3px rgba(49, 97, 224, 0.16);
+}

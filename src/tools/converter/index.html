@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <title>格式转换 · 码匣</title>
+    <script src="../../core/theme-init.js"></script>
+    <link rel="stylesheet" href="../../core/tokens.css" />
+    <link rel="stylesheet" href="../../core/base.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-tool="converter">
+    <header class="app-header" id="app-header"></header>
+
+    <main class="tool-main converter-layout">
+      <section class="panel">
+        <div class="panel-head">
+          <label class="sr-only" for="from">源格式</label>
+          <select id="from" class="format-select" aria-label="源格式"></select>
+          <span class="hint" id="detected"></span>
+          <span class="spacer"></span>
+          <label class="check" for="auto-detect">
+            <input type="checkbox" id="auto-detect" checked />
+            <span>自动识别</span>
+          </label>
+          <button class="btn btn-sm" type="button" id="btn-sample">示例</button>
+          <button class="btn btn-sm btn-danger" type="button" id="btn-clear">清空</button>
+        </div>
+
+        <div class="opt-bar" id="options"></div>
+
+        <div class="panel-body flush">
+          <textarea id="input" class="mono" spellcheck="false" aria-label="输入内容" placeholder="粘贴要转换的内容…"></textarea>
+        </div>
+
+        <div class="panel-foot" id="input-status"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <label class="sr-only" for="to">目标格式</label>
+          <select id="to" class="format-select" aria-label="目标格式"></select>
+          <span class="spacer"></span>
+          <span class="row" id="actions"></span>
+        </div>
+
+        <div class="panel-body flush">
+          <textarea id="output" class="mono" spellcheck="false" readonly aria-label="转换结果" placeholder="转换结果会出现在这里"></textarea>
+        </div>
+
+        <div class="panel-foot" id="status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="ui.js"></script>
+  </body>
+</html>
