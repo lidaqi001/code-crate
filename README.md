@@ -107,6 +107,8 @@ code-crate/
 
 ### 质量门
 
+> 需要 Node.js 22+（浏览器冒烟依赖全局 `WebSocket` 连接 DevTools 协议）。
+
 ```bash
 npm test     # 单元测试（纯逻辑层）
 npm run lint # 静态自检：清单、注册表一致性、资源引用、禁用 API、ESM 导入路径、无障碍

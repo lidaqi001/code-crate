@@ -24,6 +24,12 @@ import { readFile } from 'node:fs/promises';
 import { dirname, extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+if (typeof WebSocket === 'undefined') {
+  console.error('✗ 浏览器冒烟需要 Node.js 22+（依赖全局 WebSocket 连接 CDP）');
+  console.error('  当前版本：' + process.version);
+  process.exit(1);
+}
+
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CDP_PORT = Number(process.env.CODECRATE_CDP_PORT || 9345);
 const PROFILE = join('/tmp', `codecrate-smoke-${process.pid}`);
